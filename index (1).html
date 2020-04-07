@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="NoProblem_ on Fiverr">
+    <meta name="keywords" content="Covid19">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Stimulus Calculator</title>
+
+    <style>
+        body{
+
+            font-family: Montserrat !important;
+        }
+
+        .input-icon {
+            position: relative;
+
+        }
+
+        .input-icon > i {
+            position: absolute;
+            display: block;
+            transform: translate(0, -50%);
+            top: 50%;
+            pointer-events: none;
+            width: 25px;
+            text-align: center;
+            font-style: normal;
+            padding-top: 1px;
+            color: #007bff;
+        }
+
+        .input-icon > input {
+            padding-left: 25px;
+            padding-right: 0;
+        }
+
+        .input-icon-right > i {
+            right: 0;
+        }
+
+        .input-icon-right > input {
+            padding-left: 0;
+            padding-right: 25px;
+            text-align: right;
+        }
+        h2,h1{
+            text-align: center;color: #007bff;
+        }
+        p {
+            text-align: center;
+        }
+        #limit{
+            font-size: 12px;
+            color: red;
+            display: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" id="calculator">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="card shadow-lg p-3 mb-5 mt-4 bg-white rounded">
+                <h2 style="text-align: center;color: #007bff" >Stimulus Checking Calculator</h2>
+                <p style="text-align: center">Estimate your 2020 stimulus payment​</p>
+                <div class="row">
+                    <div class="col-md-7">
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-10" style="margin-top: 1%">
+                        <label >Have you filed your 2019 taxes yet?</label>
+                        <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="taxFiled" class="custom-control-input" value="1" checked>
+                        <label class="custom-control-label" for="customRadio1">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="taxFiled" class="custom-control-input" value="0">
+                        <label class="custom-control-label" for="customRadio2">No</label>
+                    </div>
+                    </div>
+                </div>
+
+                        <p id="no" style="display: none">Your stimulus payment amount is based on your most recent tax return.</p>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-10" style="margin-top: 1%">
+                        <label id="l1">What was your filing status on your 2019 return?</label>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio3" name="filingStatus" class="custom-control-input" value="S" checked>
+                            <label class="custom-control-label" for="customRadio3">Single</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio4" name="filingStatus" class="custom-control-input" value="M">
+                            <label class="custom-control-label" for="customRadio4">Married</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio5" name="filingStatus" class="custom-control-input" value="H">
+                            <label class="custom-control-label" for="customRadio5">Head Of Household</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-10" style="margin-top: 1%">
+                        <label for="AGI" id="l2">What was your adjusted gross income (AGI) for 2019?</label>
+                        <br>
+                        <div class="input-icon">
+                            <input class="form-control" id="AGI" type="number" min="1" value="20000" max="100000"
+                                   data-toggle="tooltip" title="You can find this on line 8b of your tax return?">
+                            <i>$</i>
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-10" style="margin-top: 1%">
+                        <label for="Child" id="l3">How many children did you claim as dependents on your 2019 return?</label>
+                        <br>
+                        <div class="input-icon">
+                            <input class="form-control" id="Child" type="number" min="0" value="0" placeholder="Number Of Children" max="15"
+                                   data-toggle="tooltip" title="Children under 17 years of age" required>
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <input type="submit" class="btn btn-primary ml-3 mt-2" id="submit" style="float: right" value="Calculate">
+
+                </div>
+
+            </div>
+                    <div class="col-md-5 mt-5" id="result" style="display: none">
+
+                        <h2 class="mt-5">Result</h2>
+                        <p >Your estimated stimulus payment amount is:​</p>
+                        <h1 id="amount">$ 2800</h1>
+                        <p id="limit" >Your AGI is above the limit to qualify for a stimulus payment.​</p>
+                        <p>Stay up to date on important tax info and how COVID-19 may impact your taxes.​</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('input').tooltip();
+        $('#result').hide();
+
+        $('input[type="radio"][name=taxFiled]:checked').on('click change', function(e) {
+            var taxfiled = $( "input[type=radio][name=taxFiled]:checked" ).val();
+            if (taxfiled == 0){
+            document.getElementById('l1').innerHTML='What was your filing status on your 2018 return?';
+            document.getElementById('l2').innerHTML='What was your adjusted gross income (AGI) for 2018?';
+            document.getElementById('l3').innerHTML='How many children did you claim as dependents on your 2018 return?';
+            }
+            });
+    });
+
+    $('input[name="taxFiled"]').click(function() {
+        var value = $(this).val();
+
+        if (value == "0") {
+            document.getElementById('l1').innerHTML='What was your filing status on your 2018 return?';
+            document.getElementById('l2').innerHTML='What was your adjusted gross income (AGI) for 2018?';
+            document.getElementById('l3').innerHTML='How many children did you claim as dependents on your 2018 return?';
+
+            $('#no').show();
+        }
+
+        else if (value == "1") {
+            document.getElementById('l1').innerHTML='What was your filing status on your 2019 return?';
+            document.getElementById('l2').innerHTML='What was your adjusted gross income (AGI) for 2019?';
+            document.getElementById('l3').innerHTML='How many children did you claim as dependents on your 2019 return?';
+
+            $('#no').hide();
+        }
+    });
+
+
+
+    $("input[type='submit']").click(function () {
+
+       var taxfiled = $( "input[type=radio][name=taxFiled]:checked" ).val();
+       var filingStatus = $( "input[type=radio][name=filingStatus]:checked" ).val();
+       var AGI = parseFloat(document.getElementById("AGI").value);
+       var child = parseFloat(document.getElementById("Child").value);
+       var amount = 0.00;
+       var slip = 0.00;
+       var childamount = 0.00;
+       childamount = parseFloat(child * 500);
+
+       if (filingStatus == "S"){
+           if (AGI <= 75000){
+               amount = 1200 + childamount;
+           }
+           else if (AGI <= 99000){
+               slip = (AGI - 75000);
+               slip = slip * 0.05;
+               amount = 1200 - slip;
+               amount =  parseFloat(amount + childamount);
+           }
+           else {
+               amount = 0;
+           }
+
+       }
+       else if (filingStatus == "M"){
+
+           if (AGI <= 150000){
+               amount = 2400 + childamount;
+           }
+           else if (AGI <= 198000){
+               slip = (AGI - 150000);
+               slip = slip * 0.05;
+               amount = 2400 - slip;
+               amount =  parseFloat(amount + childamount);
+
+           }
+           else {
+               amount = 0;
+           }
+
+       }
+       else {
+           if (AGI <= 112500){
+               amount = 1200 + childamount;
+           }
+           else if (AGI <= 136500){
+               slip = (AGI - 112500);
+               slip = slip * 0.05;
+               amount = 1200 - slip;
+               amount = parseFloat( amount + childamount);
+
+           }
+           else {
+               amount = 0;
+           }
+       }
+
+       if (amount <= 0.00){
+           document.getElementById('amount').innerHTML = '$'+ 0;
+           $('#limit').show();
+       }
+       else
+       {
+           document.getElementById('amount').innerHTML = '$'+ amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+           $('#limit').hide();
+       }
+
+       $('#result').show();
+
+    });
+
+</script>
+</body>
+</html>
