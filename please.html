@@ -1,0 +1,161 @@
+<div class="container-fluid">
+    <div class="row" id="calculator">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card shadow-lg p-3 mb-5 mt-4 bg-white rounded">
+                <h2 style="text-align: center;color: #041e39" >Corona Stimulus Check Calculator</h2>
+                <p style="text-align: center">Estimate your 2020 stimulus payment​</p>
+                <div class="row">
+                    <div class="col-md-7">
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-12" style="margin-top: 1%">
+                        <label >Have you filed your 2019 OR 2018 taxes?</label>
+                        <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="taxFiled" class="custom-control-input" value="1" checked>
+                        <label class="custom-control-label" for="customRadio1">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="taxFiled" class="custom-control-input" value="0">
+                        <label class="custom-control-label" for="customRadio2">No</label>
+                    </div>
+                    </div>
+                </div>
+
+                        <p id="no" style="display: none">Your stimulus payment amount is based on your most recent tax return.</p>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-12" style="margin-top: 1%">
+                                <label >Have you received Social Security in 2019 OR 2018?</label>
+                                <br>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio0" name="taxFiled0" class="custom-control-input" value="1" checked>
+                                    <label class="custom-control-label" for="customRadio0">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio00" name="taxFiled0" class="custom-control-input" value="0">
+                                    <label class="custom-control-label" for="customRadio00">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-12" style="margin-top: 1%">
+                        <label id="l1">What was your filing status on your 2019 return?</label>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio3" name="filingStatus" class="custom-control-input" value="S" checked>
+                            <label class="custom-control-label" for="customRadio3">Single</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio4" name="filingStatus" class="custom-control-input" value="M">
+                            <label class="custom-control-label" for="customRadio4">Married</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio5" name="filingStatus" class="custom-control-input" value="H">
+                            <label class="custom-control-label" for="customRadio5">Head Of Household</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-12" style="margin-top: 1%">
+                        <label for="AGI" id="l2">What was your adjusted gross income (AGI) for 2019?</label>
+                        <br>
+                        <div class="input-icon">
+                            <input class="form-control" id="AGI" type="number" min="1" value="20000" max="100000"
+                                   data-toggle="tooltip" title="You can find this on line 8b of your tax return?">
+                            <i>$</i>
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-12" style="margin-top: 1%">
+                        <label for="Child" id="l3">How many children did you claim as dependents on your 2019 return?</label>
+                        <br>
+                        <div class="input-icon">
+                            <input class="form-control" id="Child" type="number" min="0" value="0" placeholder="Number Of Children" max="15"
+                                   data-toggle="tooltip" title="Children under 17 years of age" required>
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <input type="submit" class="btn btn-primary ml-3 mt-2" id="submit" style="float: right" value="Calculate">
+
+                </div>
+
+            </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+
+        </div>
+    </div>
+
+    <div class="row" id="result" style="display: none">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-6">
+
+
+            <p >Your estimated stimulus payment amount is:​</p>
+            <h1 id="amount">$ 2800</h1>
+            <p id="limit" >Your AGI is above the limit to qualify for a stimulus payment.​</p>
+            <p>
+                Not sure how to claim your Corona Check? We can help!
+            </p>
+
+            <div class="form-row">
+                <div class="col-md-3"></div>
+                <div class="form-group col-md-6" style="margin-top: 1%">
+                    <label for="name" >Your Name</label>
+                    <br>
+                    <div class="input-icon">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Name"
+                               data-toggle="tooltip" title="Your Name Please">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-3"></div>
+               
+             
+                <div class="form-group col-md-6" style="margin-top: 1%">
+                    <label for="name" >Email</label>
+                    <br>
+                    <div class="input-icon">
+                        <input class="form-control" id="email" name="email" type="email" placeholder="Email"
+                               data-toggle="tooltip" title="Your Email Please">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-3"></div>
+                <div class="form-group col-md-6" style="margin-top: 1%">
+                        <input class="btn btn-primary" type="submit" value="Submit" style="width: 100%">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
